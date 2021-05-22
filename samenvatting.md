@@ -1349,18 +1349,26 @@ Principe 4:
 
 ### Active FTP
 
+Active FTP &rarr; niet mogelijk &rarr; met client-side NAT
+
 1. Client contacteert server op command poort
 2. Server stuurt ACK terug naar client&#39;s commandpoort
 3. Server initieert connectie op lokale datapoort &rarr; naar datapoort client eerder aanduidde
 4. Client stuurt ACK terug
 
-###
+Active FTP &rarr; valt op client side &rarr; FTP client maakt niet echt connectie met de data port van de server &rarr; zegt welke op welke poort het aan het luisteren is &rarr; server connects terug naar gespecifieerde poort 
 
 ### Passive FTP
+
+Passive FTP &rarr; voordelig voor client &rarr; niet voor server admin
+
+Client initieërt beide connecties naar de server &rarr; lost probleem op dat firewalls de inkomende data port connection naar de client van de server filteren
 
 1. Client contacteert server op command poort
 2. Server antwoord met poort 2024 &rarr; server verteld welke poort luisterd voor data connectie
 3. Client initieert data connectie van zijn datapoort &rarr; gespecifieerde data poort
 4. Server stuurt ACK terug naar client&#39;s datapoort
+
+Grootste probleem passive FTP &rarr; toestaan van elke remote connection naar hoog genummerde poorten op de server
 
 Active &rarr; SYN door clientPassive &rarr; SYN door client
