@@ -836,13 +836,50 @@ IKE-berichtenuitwisseling voor algoritmen, geheime sleutels, SPI-nummers
 - ESP-protocol (met AH) biedt bovendien versleuteling
 - IPsec-peers kunnen twee eindsystemen zijn, twee routers/firewalls, of een router/firewall en een eindsysteem
 
-##
+
+#### AH versus ESP
+
+| **Authentication Header (AH)** | **Encapsulating Security Payload (ESH)** |
+| --- | --- |
+| Authenticeren van data dat over connectie vloeit | Authenticeren + encrypteren van data dat over connectie vloeit |
+
+&rarr; Mogelijk om alle 2 tesamen te gebruiken maar komt niet vaak voor
+
+#### Tunnel mode versus Transport mode
+
+| **Tunnel mode** | **Transport mode** |
+| --- | --- |
+| Encapsuleert het volledige IP packet &rarr; voorzien van virtuele "secure hop" tussen 2 gateways | Zorgt voor secure connectie tussen 2 endpoints &rarr; encapsuleert IP's payload |
+
+#### Authenticatie & Encryptie
+
+| **Authenticatie** | **Encryptie** |
+| --- | --- |
+| berekening van Integrity Check Value (ICV) over inhoud packet &rarr; meestal bovenop cryptografische hash zoals MD5 of SHA-1 &rarr; secret key gekend bij beide &rarr; zorgt voor ontvanger berekenen van ICV op zelfde manier &rarr; zender effectief zichzelf geauthenticeerd &rarr; AH altijd authenticatie - ESP optioneel | Encryptie gebruikt secret key &rarr; ecrypteren data voor versturing &rarr; maskeert inhoud packets van afluisteraars &rarr; DES, 3DES, Blowfish, AES, ... |
+
+#### IKE versus manual keys
+
+hoe gegevens worden uitgewisseld? 
+
+| **IKE** | **manual keys** |
+| --- | --- |
+| geavanceerd mechanisme om dit online te doen | manuele invoer van geheime waarden aan beide uiteinden &rarr; vermoedelijk overgebracht door een of ander out-of-band mechanisme | 
+
+#### Main mode versus Aggressive mode
+
+&rarr; regeling van een afweging tussen efficiëntie en veiligheid tijdens de eerste IKE-sleuteluitwisseling 
+
+| **Main mode** | **Aggressive mode** |
+| --- | --- |
+| 6 packets back & forth &rarr; maar complete security tijdens tot stand brengen van IPsec-verbinding | Gebruikt half van uitwisselingen &rarr; minder veilig &rarr; sommige informatie in clear text verzonden
+
+
 
 ## 8.8 Securing wireless LANs
 
-## 8.8.1 Wired equivalent privacy
+### 8.8.1 Wired equivalent privacy
 
-### LEER VANUIT SLIDES &rarr; DUIDELIJKER
+#### LEER VANUIT SLIDES &rarr; DUIDELIJKER
 
 ## 8.9 Operationele beveiliging: firewalls &amp; intrusion-detectionsystemen
 
