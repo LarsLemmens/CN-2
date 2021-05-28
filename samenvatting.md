@@ -473,6 +473,8 @@ Challenge: Hoe content streamen naar 100 tot 1000&#39;en gebruikers tegelijk
 
 # Hoofdstuk 8: Security in computer networks
 
+## Note: PRIVATE KEY IS ALLEEN VAN JOU, NOOIT DELEN MET IEMAND ANDERS!
+
 ## 8.1 Wat is netwerkbeveiliging
 
 1. **Vertrouwelijkheid** : Alleen zender &amp; beoogde ontvanger inhoud van verzonden bericht begrijpen
